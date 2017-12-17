@@ -4,7 +4,21 @@
 #unzip and concatenate datasets to same two folders (jails: "ICPSR_04359", prisons: "ICPSR_04572")
 
 #set dir to dir with both data folders
-setwd(“YOURDIRECTORYHERE“)
+setwd("/Users/mackfinkel/Documents/incarcerationData/")
+
+#import census data:
+# Samples selected:
+#   2002 ACS
+# Note: 
+#   Density of the full data file:  0.38%
+# Density of your extract: 0.38%
+# 
+# 2004 ACS
+# Note: 
+#   Density of the full data file:  0.42%
+# Density of your extract: 0.42%
+
+census <- read.csv('usa_00001.csv')
 
 #convert data to R, save in repsective folders
 library(SAScii)
@@ -42,5 +56,4 @@ save(data04572_DS0001,file="data04572_DS0001.Rda")
 save(data04572_DS0002,file="data04572_DS0002.Rda")
 save(data04572_DS0003,file="data04572_DS0003.Rda")
 save(data04572_DS0004,file="data04572_DS0004.Rda")
-
-test <- data.frame(data04572_DS0004$MCMH_CURRENT_MEDICAL, data04572_DS0004$SES_INCOMEMTH, data04572_DS0004$SES_NUMOFMINOR_CHILDREN, data04572_DS0002$V1826, data04572_DS0002$V1825)
+save(census, file="census.Rda")
